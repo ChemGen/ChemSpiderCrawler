@@ -31,7 +31,7 @@ public final class ChemSpider {
       }
       System.out.println(file.toString());
       try {
-        Thread.sleep(1000);                 //1000 milliseconds is one second.
+        Thread.sleep(1000); // Delay to keep from overloading server.
       } catch(InterruptedException ex) {
         Thread.currentThread().interrupt();
       }
