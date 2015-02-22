@@ -1,0 +1,295 @@
+<%- if @results.present? %>
+<div class="container">
+<h1 style="padding-bottom:20px;">Results <a href="/ChemGen-output.csv"><i class="fa fa-download"></i></a></h1>
+<ul id="results_list" class="searchresultslist">
+<%- @results.each do |r| %>
+<li><div class="molimg"><%= image_tag("ChemGenPics/#{r[:inchi_key]}.png") %>
+<!--<div id="doodle-<%= r[:inchi_key] %>" class="doodle-widget" molfile="C8N4O2\nAPtclcactv02211517592D 0   0.00000     0.00000\n \n 14 15  0  0  0  0  0  0  0  0999 V2000\n    5.8550    1.7553    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.5443    0.8047    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    6.1279   -0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.5443   -0.8047    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    4.5981   -0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.5981    0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321    1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321    2.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8660    0.5000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8660   -0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0000   -1.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321   -1.0000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321   -2.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0000    1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  2  3  1  0  0  0  0\n  3  4  2  0  0  0  0\n  4  5  1  0  0  0  0\n  5  6  2  0  0  0  0\n  2  6  1  0  0  0  0\n  6  7  1  0  0  0  0\n  7  8  2  0  0  0  0\n  7  9  1  0  0  0  0\n  9 10  1  0  0  0  0\n 10 11  2  0  0  0  0\n 10 12  1  0  0  0  0\n  5 12  1  0  0  0  0\n 12 13  1  0  0  0  0\n  9 14  1  0  0  0  0\nM  END\n$$$$\n">
+<canvas id="doodle-canvas-<%= r[:inchi_key] %>" height="80" width="80"></canvas>
+<%- if r.molfile.present? %>
+<script>
+var dc=new ChemDoodle.ViewerCanvas('doodle-canvas-<%= r[:inchi_key] %>',80,80);
+dc.specs.backgroundColor='transparent';
+dc_structure=ChemDoodle.readMOL('C8N4O2\nAPtclcactv02211517592D 0   0.00000     0.00000\n \n 14 15  0  0  0  0  0  0  0  0999 V2000\n    5.8550    1.7553    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.5443    0.8047    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    6.1279   -0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.5443   -0.8047    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    4.5981   -0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.5981    0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321    1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321    2.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8660    0.5000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8660   -0.5000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0000   -1.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321   -1.0000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    3.7321   -2.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0000    1.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0  0  0  0\n  2  3  1  0  0  0  0\n  3  4  2  0  0  0  0\n  4  5  1  0  0  0  0\n  5  6  2  0  0  0  0\n  2  6  1  0  0  0  0\n  6  7  1  0  0  0  0\n  7  8  2  0  0  0  0\n  7  9  1  0  0  0  0\n  9 10  1  0  0  0  0\n 10 11  2  0  0  0  0\n 10 12  1  0  0  0  0\n  5 12  1  0  0  0  0\n 12 13  1  0  0  0  0\n  9 14  1  0  0  0  0\nM  END\n$$$$\n',1);
+dc_structure.scaleToAverageBondLength(20);
+dc.loadMolecule(dc_structure);					
+</script>
+<%- end %>
+</div>-->
+</div>
+<div class="moldesc">
+<div class="compound-name"><strong>Compound Name:</strong> <%= r.name %></div>
+<div><strong>Molecular Formula:</strong> <%= r.molecular_formula %></div>
+<div><strong>Molecular Weight:</strong> <%= r.mass %></div>
+</div></li>
+<%- end %>
+</ul>
+<p><a href="/search" class="btn btn-primary">Search Again</a></p>
+</div>
+<%- else %>
+
+	<div class="col-md-3" id="sidebar">
+
+		<h2>Database</h2>
+		<select class="form-control input-lg" style="margin-bottom:20px">
+		  <option>PubChem</option>
+		  <option>ChemSpider</option>
+		  <option>ZINC</option>
+		</select>
+
+		<h2>Properties</h2>
+		<div class="btn-group" style="margin-bottom:20px">
+		  <button type="button" class="btn btn-lg btn-default">Natural</button>
+		  <button type="button" class="btn btn-lg btn-default">Synthetic</button>
+		  <button type="button" class="btn btn-lg btn-default">Semi-synthetic</button>
+		</div>
+
+
+		<div class="panel-group" id="parameterTypes">
+		  <div class="panel panel-default">
+
+
+		    <div class="panel-heading"  id="headingOne">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-target="#collapseOne">
+		          Size
+		        </a>
+		      </h4>
+		    </div>
+
+		    <div id="collapseOne" class="panel-collapse collapse" >
+		      <div class="panel-body">
+
+		        <div class="checkbox">
+				  <label>
+				    <input type="checkbox" class="check1" checked>
+				    Molecular Mass
+				  </label>
+				</div>
+
+				<div class="checkbox">
+				  <label>
+				  	<input type="checkbox" class="check2" checked>
+				    Volume
+				  </label>
+				</div>
+
+		      </div>
+		    </div>
+		  </div>
+
+
+		  <div class="panel panel-default">
+		    <div class="panel-heading"  id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed" data-toggle="collapse"  data-target="#collapseTwo" >
+		          Physicochemical
+		        </a>
+		      </h4>
+		    </div>
+
+		    <div id="collapseTwo" class="panel-collapse collapse" >
+		      <div class="panel-body">
+
+		        <div class="checkbox">
+				  <label>
+				    <input type="checkbox" class="check3">
+				    Total Polar Surface Area
+				  </label>
+				</div>
+
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" class="check4">
+				    LogP (O/W)
+				  </label>
+				</div>
+
+
+				
+		      </div>
+		    </div>
+		  </div>
+
+
+		  <div class="panel panel-default">
+		    <div class="panel-heading" >
+		      <h4 class="panel-title">
+		        <a class="collapsed" data-toggle="collapse" data-target="#collapseThree" >
+		          Drug-likeness
+		        </a>
+		      </h4>
+		    </div>
+
+		    <div id="collapseThree" class="panel-collapse collapse" >
+		      <div class="panel-body">
+
+		        <div class="checkbox">
+				  <label>
+				    <input type="checkbox" class="check5">
+				    Rotatable Bonds
+				  </label>
+				</div>
+
+
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" class="check6">
+				    Lipinski Roles
+				  </label>
+				</div>
+				
+		      </div>
+		    </div>
+
+
+		  </div>
+		</div>
+	</div>
+
+
+
+	<div class="col-md-9" id="inputArea">
+		<a href="/results" onClick="return gotoresults();"><div class="cheese" >
+			<h1 id="numberSubstances" style="display:inline-block"><%= @results %></h1>
+			<h1 style="display:inline-block; "> substances fit </br> your description</h1>
+			<div class="arrow-right"></div>
+		</div></a>
+
+		<ul>
+			<li id="check1">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+						<h3>Mass</h3>
+						<div class="sliderDiv">
+							
+							<input id="slider1" type="text"/><br/>
+							<span>Min:max <span id="slider1Val">0:2500</span></span></br>
+						</div>
+
+				  </div>
+				</div>
+			</li>
+
+			<li id="check2">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+						<h3>Volume</h3>
+						<div class="sliderDiv">
+							
+							<input id="slider2" type="text"/><br/>
+							<span>Min:max <span id="slider2Val">0:2000</span></span></br>
+						</div>
+				  </div>
+				</div>
+			</li>
+
+			<li id="check3" style=" display:none">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+						<h3>Polar Surface Area</h3>
+						<div class="sliderDiv">
+							
+							<input id="slider3" type="text"/></br>
+							<span>Min:max <span id="slider3Val">0:1500</span></span></br>
+						</div>
+				  </div>
+				</div>
+			</li>
+
+			<li id="check4" style=" display:none">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+						<h3>LogP</h3>
+						<div class="sliderDiv">
+							
+							<input id="slider4" type="text"/><br/>
+							<span>Min:max <span id="slider4Val">-15:25</span></span></br>
+						</div>
+				  </div>
+				</div>
+			</li>
+
+			<li id="check5" style=" display:none">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+						<h3>Rotatable Bonds</h3>
+						<div class="sliderDiv">
+							
+							<input id="slider5" type="text"/><br/>
+							<span>Min:max <span id="slider5Val">0:105</span></span></br>
+						</div>
+				  </div>
+				</div>
+			</li>
+
+			<li id="check6" style=" display:none">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+						<h3>Lipinski Roles</h3>
+						<div class="sliderDiv">
+							
+							<input id="slider6" type="text"/><br/>
+							<span>Min:max <span id="slider6Val">0:5</span></span></br>
+						</div>
+				  </div>
+				</div>
+			</li>
+<script>
+$("#slider1").slider({ id: "slider1", min: 0.5, max: 2500, range: true, value: [0,2500] }).on("slideStop",function(slideEvt){getCount('1',slideEvt.value);});
+$("#slider2").slider({ id: "slider2", min: 0.5, max: 2000, range: true, value: [0, 2000] }).on("slideStop",function(slideEvt){getCount('2',slideEvt.value);});
+$("#slider3").slider({ id: "slider3", min: 0, max: 1500, range: true, value: [0, 1500] }).on("slideStop",function(slideEvt){getCount('3',slideEvt.value);});
+$("#slider4").slider({ id: "slider4", min: -15, max: 25, range: true, value: [-15,25] }).on("slideStop",function(slideEvt){getCount('4',slideEvt.value);});
+$("#slider5").slider({ id: "slider5", min: 0, max: 105, range: true, value: [0, 105] }).on("slideStop",function(slideEvt){getCount('5',slideEvt.value);});
+$("#slider6").slider({ id: "slider6", min: 0, max: 5, range: true, value: [0, 5] }).on("slideStop",function(slideEvt){getCount('6',slideEvt.value);});
+$(document).ready(function(){
+  $('input[type="checkbox"]').click(function(){
+    if($(this).attr("class")=="check1"){
+      $("#check1").toggle();
+    }		            
+    if($(this).attr("class")=="check2"){
+      $("#check2").toggle();
+    }
+    if($(this).attr("class")=="check3"){
+      $("#check3").toggle();
+    }
+    if($(this).attr("class")=="check4"){
+      $("#check4").toggle();
+    }
+    if($(this).attr("class")=="check5"){
+      $("#check5").toggle();
+    }
+    if($(this).attr("class")=="check6"){
+      $("#check6").toggle();
+    }
+  });
+  });
+  $("#slider1").on("slide", function(slideEvt) {
+  $("#slider1Val").text(slideEvt.value);
+});
+  $("#slider2").on("slide", function(slideEvt) {
+  $("#slider2Val").text(slideEvt.value);
+});
+  $("#slider3").on("slide", function(slideEvt) {
+  $("#slider3Val").text(slideEvt.value);
+});
+  $("#slider4").on("slide", function(slideEvt) {
+  $("#slider4Val").text(slideEvt.value);
+});
+  $("#slider5").on("slide", function(slideEvt) {
+  $("#slider5Val").text(slideEvt.value);
+});
+  $("#slider6").on("slide", function(slideEvt) {
+  $("#slider6Val").text(slideEvt.value);
+});
+</script>
+<div class="hidden">
+<div id="slidecounter1">0,2500</div>
+<div id="slidecounter2">0,2000</div>
+<div id="slidecounter3">0,1500</div>
+<div id="slidecounter4">-15,25</div>
+<div id="slidecounter5">0,105</div>
+<div id="slidecounter6">0,5</div>
+</div>
+</div>
+<%- end %>

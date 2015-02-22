@@ -1,0 +1,130 @@
+        <style>
+        .img-circle{
+            height:200px;
+            width:250px;
+            background: cover;}
+            /*!
+             * Start Bootstrap - Business Frontpage HTML Template (http://startbootstrap.com)
+             * Code licensed under the Apache License v2.0.
+             * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+             */
+
+            body {
+                padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+            }
+
+            .business-header {
+                height: 400px;
+                background:     linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("http://i57.tinypic.com/solocl.jpg") center 10% no-repeat scroll;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                background-size: cover;
+                -o-background-size: cover;
+            }
+
+            /* Customize the text color and shadow color and to optimize text legibility. */
+
+            .tagline {
+                text-shadow: 0 0 10px #000;
+                color: #fff;
+            }
+
+            .img-center {
+                margin: 0 auto;
+            }
+
+            footer {
+                margin: 50px 0;
+            }
+    </style>
+
+
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline"><%= image_tag("chemgenlogo.png") %> Making Discovery Happen.</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>What We Do</h2>
+                <p>ChemGen is a highly extensible research platform which unlocks chemical information and makes it available to the $400 billion pharmaceutical industry of the 21st century. The paradigm for pharmaceutical drug discovery has changed, and cutting edge therapeutics are now primarily discovered outside of big pharma. 
+`               </p><p>
+                    Our platform provides a solution to the outdated information infrastructure currently available in the field of chemistry. We equip researchers with the tools they need to make research and development happen at a pace previously unachievable without enormously expensive custom programs.</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="/search">Let's get started &raquo;</a>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Contact Us</h2>
+                <address>
+                    <strong>GenChem Inc.</strong>
+                    <br>6022 Avogadro Drive
+                    <br>Eureka, CA 90210
+                    <br>
+                </address>
+                <address>
+                    <abbr title="Phone">P:</abbr>(123) 456-7890
+                    <br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:#">info@chemgen.com</a>
+                </address>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="/assets/mktg1.jpg" alt="">
+                <h2>Fast</h2>
+                <p>Cut down dramatically on the time it takes to sort through chemistry databases. ChemGen allows users to make up to several thousand queries at a time to speed up the process
+                of drug discovery for chemists around the globe.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="/assets/mktg2.jpg" alt="">
+                <h2>Simple</h2>
+                <p>ChemGen is easier to use than any existing tools on the market. Simply set a range of qualities and ChemGen will automatically query our database in order to find substances
+                    matching your description and allow you to download as a batch.</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="img-circle img-responsive img-center" src="/assets/mktg3.jpg" alt="">
+                <h2>Invaluable</h2>
+                <p>Made by chemists, for chemists. ChemGen empowers researchers to spend more time in the lab and less time searching through outdated systems for the information that they need.
+                </p>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; ChemGen 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+

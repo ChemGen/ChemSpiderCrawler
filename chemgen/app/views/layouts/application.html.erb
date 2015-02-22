@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chemgen</title>
+<%= stylesheet_link_tag("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css",:media=>"all","data-turbolinks-track"=>true) %>
+<%= stylesheet_link_tag("application",:media=>"all","data-turbolinks-track"=>true) %>
+<%= javascript_include_tag("application","data-turbolinks-track"=>true) %>
+<%= csrf_meta_tags %>
+</head>
+<body>
+	<nav>
+    <%= link_to(image_tag("chemgenlogo.png"),root_path) %>
+	</nav>
+<%= yield %>
+<section class="header">
+</section>
+<section class="footer">
+<p>Proudly made in Austin, Texas at HackOut 2015.</p>
+</section>
+</body>
+</html>

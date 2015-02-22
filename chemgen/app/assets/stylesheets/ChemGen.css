@@ -1,0 +1,85 @@
+body{
+	font-size: 150%;
+}
+
+
+nav {
+	background:#BD4748;
+
+	width:100%;
+
+
+}
+
+.navlogo {
+	display:inline;
+	margin-left:20px;
+	max-height:70px;
+	width:auto;
+}
+
+nav ul {
+	list-style-type: none;
+	display:inline;
+	float:right;
+	margin-right:60px;
+}
+
+nav ul li {
+	display:inline-block;
+	padding:15px;
+	color:white;
+
+} nav ul li:hover{
+	background:#C47478;
+
+}
+
+#sidebar{
+	background:#F7F7F7;
+
+	padding:50px;
+}
+
+.checkbox{
+	font-weight:600;
+
+
+}
+
+#numberSubstances {
+	font-size:150px;
+	color:#3F89C9;
+
+}
+
+.sliderDiv {
+	display:inline-block;
+}
+
+.cheese{
+	margin-top:50px;
+	background:white;
+	z-index: 400;
+	width:100%;
+	text-align: center
+}
+
+#inputArea ul li {
+	list-style: none;
+	width:400px;
+	display:inline-block;
+	margin:20px;
+}
+
+.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 40px solid transparent;
+	border-bottom: 40px solid transparent;
+	
+	border-left: 40px solid #3F89C9;
+	display: inline-block;
+	width:50px;
+	margin-left:30px;
+}

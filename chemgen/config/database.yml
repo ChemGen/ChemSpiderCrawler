@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: chemgen_development
+  username: root
+  password:
+
+test:
+  <<: *default
+  database: chemgen_test
+  username: root
+  password:
+
+production:
+  <<: *default
+  database: chemgen_production
+  username: chemgen_user
+  password:

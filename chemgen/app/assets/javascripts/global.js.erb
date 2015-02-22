@@ -1,0 +1,40 @@
+function getCount(e,v){
+  if(e!='' && v!='') $('#slidecounter'+e).text(v);
+  $.ajax({
+    beforeSend:function(xhr){
+      xhr.setRequestHeader('X-CSRF-Token',$('meta[name="csrf-token"]').attr('content'))
+    },
+    data:'m='+$('#slidecounter1').text()+'&v='+$('#slidecounter2').text()+'&psa='+$('#slidecounter3').text()+'&logp='+$('#slidecounter4').text()+'&rb='+$('#slidecounter5').text()+'&lr='+$('#slidecounter6').text(),
+    dataType:'script',
+    type:'get',
+    url:'/search'
+  }).fail(function(r,s,e){
+    alert('Oops. There was an error. Please refresh the page and try again.');
+  });
+}
+function gotoresults(){
+  window.location='/search?m='+$('#slidecounter1').text()+'&v='+$('#slidecounter2').text()+'&psa='+$('#slidecounter3').text()+'&logp='+$('#slidecounter4').text()+'&rb='+$('#slidecounter5').text()+'&lr='+$('#slidecounter6').text();
+  return false;
+}
+$(document).ready(function($){
+  getCount('','');
+  var $rl=$('#results_list li');
+/*  if($rl.length){
+    $rl.each(function(i,el){
+      $.ajax({
+        type:'get',
+        url:'/molfiles/'+$(el).data('id')
+        data:'div_id=molimg'+$(el).data('id'),
+        type:'get',
+        url:'http://cactus.nci.nih.gov/chemical/structure/'+$(el).data('key')+'/twirl'
+      }).done(function(d,s,r){
+				var doodle_canvas=new ChemDoodle.ViewerCanvas('doodle-canvas-'+$(el).data('id'),80,80);
+        console.log(doodle_canvas);
+        doodle_canvas.specs.backgroundColor='transparent';
+        doodle_canvas_structure=ChemDoodle.readMOL(r.response,1);
+        doodle_canvas_structure.scaleToAverageBondLength(20);
+        doodle_canvas.loadMolecule(doodle_canvas_structure);					
+      });
+    })
+  }*/
+});
